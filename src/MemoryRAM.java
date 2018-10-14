@@ -81,10 +81,14 @@ public class MemoryRAM extends Computer implements Power{
     @Override
     public double decreasingClocking(int diffClocking) {
         workTemp-=(diffClocking/100)*15;
-        if (workTemp<workTempBase)
-            workTempBase=workTemp;
-        if(clocking>clockingBase)
-        clocking-=diffClocking;
+        if (workTemp < workTempBase){
+            workTemp = workTempBase;
+            clocking = clockingBase;
+        }
+
+
+        if(clocking > clockingBase)
+            clocking -= diffClocking;
         return clocking;}
 }
 
