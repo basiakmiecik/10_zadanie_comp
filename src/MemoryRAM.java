@@ -1,4 +1,4 @@
-public class MemoryRAM extends Computer implements Power{
+public class MemoryRAM extends Computer implements Power {
     private double clockingBase;
     private int memory;
     private int workTempBase;
@@ -13,8 +13,8 @@ public class MemoryRAM extends Computer implements Power{
         this.workTemp = workTemp;
         this.maxTemp = maxTemp;
         this.clocking = clocking;
-        workTempBase=workTemp;
-        clockingBase=clocking;
+        workTempBase = workTemp;
+        clockingBase = clocking;
     }
 
 
@@ -62,33 +62,30 @@ public class MemoryRAM extends Computer implements Power{
         this.clockingBase = clockingBase;
     }
 
-    public void setWorkTempBase(int workTempBase)
-
-    {
+    public void setWorkTempBase(int workTempBase) {
         this.workTempBase = workTempBase;
     }
 
     @Override
     public double increasingClocking(int addClocking) {
-        workTemp=workTemp+(addClocking/100)*15;
-        clocking=clockingBase;
-        if(workTemp>=maxTemp) {
+        workTemp = workTemp + (addClocking / 100) * 15;
+        clocking = clockingBase;
+        if (workTemp >= maxTemp) {
             throw new TemperatureOverEcxeption();
         } else
-            return clocking=clockingBase+addClocking;
+            return clocking = clockingBase + addClocking;
     }
 
     @Override
     public double decreasingClocking(int diffClocking) {
-        workTemp-=(diffClocking/100)*15;
-        if (workTemp < workTempBase){
+        workTemp -= (diffClocking / 100) * 15;
+        if (workTemp < workTempBase) {
             workTemp = workTempBase;
             clocking = clockingBase;
         }
-
-
-        if(clocking > clockingBase)
+        if (clocking > clockingBase)
             clocking -= diffClocking;
-        return clocking;}
+        return clocking;
+    }
 }
 

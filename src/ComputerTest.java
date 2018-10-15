@@ -5,19 +5,24 @@ public class ComputerTest {
         Computer disc=new Disc("venom","Asus","123-456",256);
 
         try {
-            System.out.println("Pamięć: "+((MemoryRAM) memory).increasingClocking(100)+ " "+((MemoryRAM) memory).getWorkTemp());
-            System.out.println("Procesor: "+((Processor) processor).increasingClocking(100)+" "+((Processor) processor).getWorkTemp());
-        }catch (TemperatureOverEcxeption e){
-            String element="";
-            if(((Processor) processor).getWorkTemp()>=((Processor) processor).getMaxTemp()){
-               element=" - procesor";}
-               else if(((MemoryRAM) memory).getWorkTemp()>=((MemoryRAM) memory).getMaxTemp()){
-                   element=" - pamięć";
+            System.out.println("Pamięć: "+((MemoryRAM) memory).increasingClocking(100)+ " "+
+                    ((MemoryRAM) memory).getWorkTemp());
+            System.out.println("Procesor: "+((Processor) processor).increasingClocking(100)+" "+
+                    ((Processor) processor).getWorkTemp());
+            }catch (TemperatureOverEcxeption e){
+                String element="";
+                    if(((Processor) processor).getWorkTemp()>=((Processor) processor).getMaxTemp()){
+                        element=" - procesor";}
+                    else if(((MemoryRAM) memory).getWorkTemp()>=((MemoryRAM) memory).getMaxTemp()){
+                        element=" - pamięć";
+                    }
+                    System.err.println("Temperatura max została przekroczona!"+element);
             }
-            System.err.println("Temperatura max została przekroczona!"+element);
-        }
 
-        System.out.println("Pamięć obniżanie o 200 MGH "+ ((MemoryRAM) memory).decreasingClocking(200)+" "+((MemoryRAM) memory).getWorkTemp());
+        System.out.println("Pamięć obniżanie o 200 MGH "+ ((MemoryRAM) memory).decreasingClocking(200)
+                +" "+((MemoryRAM) memory).getWorkTemp());
+        System.out.println("Pamięć obniżanie o 200 MGH "+ ((Processor) processor).decreasingClocking(200)
+                +" "+((Processor) processor).getWorkTemp());
 
 
 

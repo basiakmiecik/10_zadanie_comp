@@ -60,9 +60,11 @@ public class Processor extends Computer implements Power{
     @Override
     public double decreasingClocking(int diffClocking) {
         workTemp -= (diffClocking / 100) * 10;
-        if (workTemp < workTempBase)
+        if (workTemp < workTempBase){
             workTemp = workTempBase;
-        if (clocking > clockingBase)
-            return clocking -= diffClocking;;
-    return clocking=clockingBase;}
+            clocking = clockingBase;
+        }
+        if(clocking > clockingBase)
+            clocking -= diffClocking;
+        return clocking;}
 }
