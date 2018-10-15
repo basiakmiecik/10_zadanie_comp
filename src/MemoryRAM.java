@@ -71,20 +71,20 @@ public class MemoryRAM extends Computer implements Power{
     @Override
     public double increasingClocking(int addClocking) {
         workTemp=workTemp+(addClocking/100)*15;
-        clocking=clockingBase;
-        if(workTemp>=maxTemp) {
+        if(workTemp>=maxTemp)
             throw new TemperatureOverEcxeption();
-        } else
-            return clocking=clockingBase+addClocking;
+            else{
+            clocking=clockingBase+addClocking;}
+            return clocking;
     }
 
     @Override
     public double decreasingClocking(int diffClocking) {
-        workTemp-=(diffClocking/100)*15;
-        if (workTemp<workTempBase)
-            workTempBase=workTemp;
-        if(clocking>clockingBase)
-        clocking-=diffClocking;
-        return clocking;}
+        workTemp -= (diffClocking / 100) * 15;
+        if (workTemp < workTempBase)
+    workTemp = workTempBase;
+        if (clocking > clockingBase)
+        return clocking -= diffClocking;
+    return clocking=clockingBase;}
 }
 

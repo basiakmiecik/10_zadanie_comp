@@ -49,23 +49,20 @@ public class Processor extends Computer implements Power{
 
     @Override
     public double increasingClocking(int addClocking) {
-        workTempBase=workTemp;
         workTemp=workTemp+(addClocking/100)*10;
-        clockingBase=clocking;
-        if(workTemp>=maxTemp)
+        clocking=clockingBase;
+        if(workTemp>=maxTemp) {
             throw new TemperatureOverEcxeption();
-        else
-             clocking+=addClocking;
-        return clocking;
+        } else
+            return clocking=clockingBase+addClocking;
     }
 
     @Override
     public double decreasingClocking(int diffClocking) {
-        workTempBase=workTemp;
-        workTemp-=(diffClocking/100)*10;
-        if (workTemp<workTempBase)
-            workTemp=workTempBase;
-        else
-            clocking-=diffClocking;
-    return clockingBase;}
+        workTemp -= (diffClocking / 100) * 10;
+        if (workTemp < workTempBase)
+            workTemp = workTempBase;
+        if (clocking > clockingBase)
+            return clocking -= diffClocking;;
+    return clocking=clockingBase;}
 }
